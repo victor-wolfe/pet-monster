@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { STYLES } from "../styles";
-import { StatDisplay, dragonStats } from "./StatDisplay";
+import { StatDisplay } from "./StatDisplay";
 import { PetDisplay } from "./PetDisplay";
 import { ActionDisplay } from "./ActionDisplay";
 import { DayDisplay } from "./TimeDisplay";
@@ -11,7 +11,7 @@ export const MainScreen = () => {
     <div className="container">
       <DayDisplay />
       <PetDisplay />
-      <StatDisplay stats={dragonStats} />
+      <StatDisplay />
       <ActionDisplay />
     </div>
   );
