@@ -1,13 +1,15 @@
 import React from "react";
 
 const DAY_TIME = {
-  day: 0,
+  day: 1,
   time: "morning"
 };
 
+const MORNING_AFTERNOON_NIGHT = ["Morning", "Afternoon", "Night"];
+
 export const DayDisplay = () => {
   return (
-    <div>
+    <div class="nes-container is-dark is-rounded is-centered">
       <p>
         Day {DAY_TIME["day"]} - {DAY_TIME["time"]}
       </p>
