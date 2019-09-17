@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
 
-export class StatDisplay extends React.Component {
+class GameLogic extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,43 +9,121 @@ export class StatDisplay extends React.Component {
         {
           id: 0,
           name: "Hunger",
-          value: 100,
-          action: "Feed",
-          actionValue: -5
+          value: 100
         },
         {
           id: 1,
           name: "Affection",
-          value: 0,
-          action: "Pet",
-          actionValue: 3
+          value: 0
         },
         {
           id: 2,
           name: "Intelligence",
-          value: 0,
-          action: "Train",
-          actionValue: 5
+          value: 0
         }
       ],
-      button: ""
+      actions: [
+        {
+          id: 1,
+          name: "Feed",
+          affectedStats: {
+            hunger: -5
+          }
+        },
+        {
+          id: 2,
+          name: "Pet",
+          affectedStats: {
+            affection: 3
+          }
+        },
+        {
+          id: 3,
+          name: "Train",
+          affectedStats: {
+            intelligence: 5,
+            affection: -1
+          }
+        }
+      ]
     };
+  }
+}
+
+export const StatDisplay = props => {
+  return (
+    <div>
+      <div class="nes-container is-dark is-rounded">
+        <ListGroup>
+          <ListStats stats={props.stats} />
+        </ListGroup>
+      </div>
+      <div class="nes-container is-dark is-rounded">
+        <ListGroup>
+          <ListActions actions={props.actions} />
+        </ListGroup>
+      </div>
+    </div>
+  );
+};
+
+export class StatDefinitions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stats: [
+        {
+          id: 0,
+          name: "Hunger",
+          value: 100
+        },
+        {
+          id: 1,
+          name: "Affection",
+          value: 0
+        },
+        {
+          id: 2,
+          name: "Intelligence",
+          value: 0
+        }
+      ],
+      actions: [
+        {
+          id: 1,
+          name: "Feed",
+          affectedStats: {
+            hunger: -5
+          }
+        },
+        {
+          id: 2,
+          name: "Pet",
+          affectedStats: {
+            affection: 3
+          }
+        },
+        {
+          id: 3,
+          name: "Train",
+          affectedStats: {
+            intelligence: 5,
+            affection: -1
+          }
+        }
+      ]
+    };
+  }
+
+  performAction(stat, amount) {
+    this.setState({
+      stat.
+    })
   }
 
   render() {
     return (
-      <div>
-        <div class="nes-container is-dark is-rounded">
-          <ListGroup>
-            <ListStats stats={this.state.stats} />
-          </ListGroup>
-        </div>
-        <div class="nes-container is-dark is-rounded">
-          <ListGroup>
-            <ListActions stats={this.state.stats} />
-          </ListGroup>
-        </div>
-      </div>
+      <StatDisplay stats={this.state.stats} actions={this.state.actions} />
     );
   }
 }
@@ -59,13 +137,39 @@ const ListStats = props => {
   return <ul>{statList}</ul>;
 };
 
-const ListActions = props => {
-  const actionList = props.stats.map(stat => (
-    <ListGroupItem>
-      <Button className="nes-btn is-primary">
-        {stat.action}: {stat.actionValue} {stat.name}
-      </Button>
-    </ListGroupItem>
-  ));
-  return <ul>{actionList}</ul>;
-};
+class ListActions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userAction: ""
+    };
+  }
+
+  handleClick = () => {
+    this.setState({
+      userAction: "SCREAM INTO THE VOID"
+    });
+    console.log();
+  };
+
+  render() {
+    return (
+      <ListGroup>
+        {this.props.actions.map(action => (
+          <ListGroupItem>
+            <Button className="nes-btn is-primary" onClick={this.handleClick}>
+              {action.name}: {JSON.stringify(action.affectedStats)}
+            </Button>
+          </ListGroupItem>
+        ))}
+      </ListGroup>
+    );
+  }
+}
+
+class changeStats extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+}
