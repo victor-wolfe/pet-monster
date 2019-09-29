@@ -1,27 +1,5 @@
 import React from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
-import { STATS } from "../shared/stats";
-import { ACTIONS } from "../shared/actions";
-
-export class GameLogic extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stats: STATS,
-      actions: ACTIONS
-    };
-  }
-
-  handleClick(props) {
-    console.log(props);
-  }
-
-  render() {
-    return (
-      <StatDisplay stats={this.state.stats} actions={this.state.actions} />
-    );
-  }
-}
 
 export const StatDisplay = props => {
   return (
@@ -33,7 +11,7 @@ export const StatDisplay = props => {
       </div>
       <div class="nes-container is-dark is-rounded">
         <ListGroup>
-          <ListActions actions={props.actions} />
+          <ListActions actions={props.actions} onClick={props.onClick} />
         </ListGroup>
       </div>
     </div>
@@ -49,35 +27,19 @@ const ListStats = props => {
   return <ul>{statList}</ul>;
 };
 
-class ListActions extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userAction: ""
-    };
-  }
-
-  handleClick = action => {
-    console.log(action.name);
-    this.setState({
-      userAction: "SCREAM INTO THE VOID"
-    });
-  };
-
-  render() {
-    return (
-      <ListGroup>
-        {this.props.actions.map(action => (
-          <ListGroupItem>
-            <Button
-              className="nes-btn is-primary"
-              onClick={() => this.handleClick(action)}
-            >
-              {action.name}: {JSON.stringify(action.affectedStats)}
-            </Button>
-          </ListGroupItem>
-        ))}
-      </ListGroup>
-    );
-  }
-}
+const ListActions = props => {
+  return (
+    <ListGroup>
+      {props.actions.map(action => (
+        <ListGroupItem>
+          <Button
+            className="nes-btn is-primary"
+            onClick={() => props.onClick(action)}
+          >
+            {action.name}: {JSON.stringify(action.affectedStats)}
+          </Button>
+        </ListGroupItem>
+      ))}
+    </ListGroup>
+  );
+};
