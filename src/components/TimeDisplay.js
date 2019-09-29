@@ -1,18 +1,51 @@
 import React from "react";
 
-const DAY_TIME = {
-  day: 1,
-  time: "morning"
-};
+export class ChangeTime extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      day: 1,
+      time: "Morning"
+    };
+  }
 
-const MORNING_AFTERNOON_NIGHT = ["Morning", "Afternoon", "Night"];
+  changeTime(time) {
+    switch (time) {
+      case "Morning":
+        this.setState({
+          time: "Afternoon"
+        });
+        break;
+      case "Afternoon":
+        this.setState({
+          time: "Night"
+        });
+        break;
+      case "Night":
+        const newDay = this.state.day + 1;
+        this.setState({
+          day: newDay,
+          time: "Morning"
+        });
+        break;
+      default:
+        break;
+    }
+  }
 
-export const DayDisplay = () => {
+  render() {
+    return (
+      <div>
+        <DayDisplay day={this.state.day} time={this.state.time} />;
+      </div>
+    );
+  }
+}
+
+const DayDisplay = props => {
   return (
     <div class="nes-container is-dark is-rounded is-centered">
-      <p>
-        Day {DAY_TIME["day"]} - {DAY_TIME["time"]}
-      </p>
+      <p>{`Day: ${props.day} - Time: ${props.time}`}</p>
     </div>
   );
 };

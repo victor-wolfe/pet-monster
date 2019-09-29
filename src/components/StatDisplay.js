@@ -11,6 +11,11 @@ export class GameLogic extends React.Component {
       actions: ACTIONS
     };
   }
+
+  handleClick(props) {
+    console.log(props);
+  }
+
   render() {
     return (
       <StatDisplay stats={this.state.stats} actions={this.state.actions} />
@@ -53,7 +58,7 @@ class ListActions extends React.Component {
   }
 
   handleClick = action => {
-    console.log(action);
+    console.log(action.name);
     this.setState({
       userAction: "SCREAM INTO THE VOID"
     });
@@ -74,12 +79,5 @@ class ListActions extends React.Component {
         ))}
       </ListGroup>
     );
-  }
-}
-
-class changeStats extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
   }
 }
