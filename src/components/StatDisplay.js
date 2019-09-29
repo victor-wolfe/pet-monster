@@ -1,52 +1,20 @@
 import React from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
+import { STATS } from "../shared/stats";
+import { ACTIONS } from "../shared/actions";
 
-class GameLogic extends React.Component {
+export class GameLogic extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stats: [
-        {
-          id: 0,
-          name: "Hunger",
-          value: 100
-        },
-        {
-          id: 1,
-          name: "Affection",
-          value: 0
-        },
-        {
-          id: 2,
-          name: "Intelligence",
-          value: 0
-        }
-      ],
-      actions: [
-        {
-          id: 1,
-          name: "Feed",
-          affectedStats: {
-            hunger: -5
-          }
-        },
-        {
-          id: 2,
-          name: "Pet",
-          affectedStats: {
-            affection: 3
-          }
-        },
-        {
-          id: 3,
-          name: "Train",
-          affectedStats: {
-            intelligence: 5,
-            affection: -1
-          }
-        }
-      ]
+      stats: STATS,
+      actions: ACTIONS
     };
+  }
+  render() {
+    return (
+      <StatDisplay stats={this.state.stats} actions={this.state.actions} />
+    );
   }
 }
 
@@ -67,67 +35,6 @@ export const StatDisplay = props => {
   );
 };
 
-export class StatDefinitions extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stats: [
-        {
-          id: 0,
-          name: "Hunger",
-          value: 100
-        },
-        {
-          id: 1,
-          name: "Affection",
-          value: 0
-        },
-        {
-          id: 2,
-          name: "Intelligence",
-          value: 0
-        }
-      ],
-      actions: [
-        {
-          id: 1,
-          name: "Feed",
-          affectedStats: {
-            hunger: -5
-          }
-        },
-        {
-          id: 2,
-          name: "Pet",
-          affectedStats: {
-            affection: 3
-          }
-        },
-        {
-          id: 3,
-          name: "Train",
-          affectedStats: {
-            intelligence: 5,
-            affection: -1
-          }
-        }
-      ]
-    };
-  }
-
-  performAction(stat, amount) {
-    this.setState({
-      stat.
-    })
-  }
-
-  render() {
-    return (
-      <StatDisplay stats={this.state.stats} actions={this.state.actions} />
-    );
-  }
-}
-
 const ListStats = props => {
   const statList = props.stats.map(stat => (
     <li key={stat.id}>
@@ -145,11 +52,11 @@ class ListActions extends React.Component {
     };
   }
 
-  handleClick = () => {
+  handleClick = action => {
+    console.log(action);
     this.setState({
       userAction: "SCREAM INTO THE VOID"
     });
-    console.log();
   };
 
   render() {
@@ -157,7 +64,10 @@ class ListActions extends React.Component {
       <ListGroup>
         {this.props.actions.map(action => (
           <ListGroupItem>
-            <Button className="nes-btn is-primary" onClick={this.handleClick}>
+            <Button
+              className="nes-btn is-primary"
+              onClick={() => this.handleClick(action)}
+            >
               {action.name}: {JSON.stringify(action.affectedStats)}
             </Button>
           </ListGroupItem>
