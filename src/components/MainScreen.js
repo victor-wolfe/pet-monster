@@ -40,8 +40,27 @@ export class MainScreen extends React.Component {
     }
   }
 
+  //takes an object from the array of actions: id, name, affectedStats
+  performAction(action) {
+    let newStat;
+    let copyOfState = this.state.stats.slice(0);
+    const affectedStatArray = Object.keys(action.affectedStats);
+    // loop through the stats that will be changed
+    for (const statToChange of affectedStatArray) {
+      // loop through the current stats
+      for (const originalStat of copyOfState) {
+        if (originalStat.name === statToChange) {
+          newStat = action.affectedStats[statToChange] + originalStat.value;
+          originalStat.value = newStat;
+        }
+      }
+    }
+    console.log("State ", this.state.stats);
+    console.log("Copy ", copyOfState);
+  }
+
   handleClick = action => {
-    console.log(action.name);
+    this.performAction(action);
     this.changeTime(this.state.time);
   };
 

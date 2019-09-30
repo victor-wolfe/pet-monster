@@ -36,7 +36,7 @@ const ListActions = props => {
             className="nes-btn is-primary"
             onClick={() => props.onClick(action)}
           >
-            {action.name}: {JSON.stringify(action.affectedStats)}
+            {action.name}
           </Button>
         </ListGroupItem>
       ))}

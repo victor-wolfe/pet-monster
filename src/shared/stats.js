@@ -1,17 +1,17 @@
 export const STATS = [
   {
     id: 0,
-    name: "Hunger",
+    name: "hunger",
     value: 100
   },
   {
     id: 1,
-    name: "Affection",
+    name: "affection",
     value: 0
   },
   {
     id: 2,
-    name: "Intelligence",
+    name: "intelligence",
     value: 0
   }
 ];
