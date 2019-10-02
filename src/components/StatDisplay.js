@@ -4,12 +4,12 @@ import { Button, ListGroup, ListGroupItem } from "reactstrap";
 export const StatDisplay = props => {
   return (
     <div>
-      <div class="nes-container is-dark is-rounded">
+      <div className="nes-container is-dark is-rounded">
         <ListGroup>
           <ListStats stats={props.stats} />
         </ListGroup>
       </div>
-      <div class="nes-container is-dark is-rounded">
+      <div className="nes-container is-dark is-rounded">
         <ListGroup>
           <ListActions actions={props.actions} onClick={props.onClick} />
         </ListGroup>
@@ -31,7 +31,7 @@ const ListActions = props => {
   return (
     <ListGroup>
       {props.actions.map(action => (
-        <ListGroupItem>
+        <ListGroupItem key={action.id}>
           <Button
             className="nes-btn is-primary"
             onClick={() => props.onClick(action)}
