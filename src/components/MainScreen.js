@@ -4,6 +4,7 @@ import { StatDisplay } from "./StatDisplay";
 import DayDisplay from "./TimeDisplay";
 import { STATS } from "../shared/stats";
 import { ACTIONS } from "../shared/actions";
+import { cloneDeep } from "lodash";
 
 export class MainScreen extends React.Component {
   constructor(props) {
@@ -43,12 +44,12 @@ export class MainScreen extends React.Component {
   //takes an object from the array of actions: id, name, affectedStats
   performAction(action) {
     let newStat;
-    let copyOfState = this.state.stats.slice(0);
+    let statsClone = cloneDeep(this.state.stats);
     const affectedStatArray = Object.keys(action.affectedStats);
     // loop through the stats that will be changed
     for (const statToChange of affectedStatArray) {
       // loop through the current stats
-      for (const originalStat of copyOfState) {
+      for (const originalStat of statsClone) {
         if (originalStat.name === statToChange) {
           newStat = action.affectedStats[statToChange] + originalStat.value;
           originalStat.value = newStat;
@@ -56,7 +57,8 @@ export class MainScreen extends React.Component {
       }
     }
     console.log("State ", this.state.stats);
-    console.log("Copy ", copyOfState);
+    console.log("Copy ", statsClone);
+    this.setState({ stats: statsClone });
   }
 
   handleClick = action => {
