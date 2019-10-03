@@ -46,6 +46,11 @@ export class MainScreen extends React.Component {
   performAction(action) {
     let newStat;
     let statsClone = cloneDeep(this.state.stats);
+
+    let hungry = this.state.stats[0].value;
+    hungry -= 5;
+    statsClone[0].value = hungry;
+
     const affectedStatArray = Object.keys(action.affectedStats);
     // loop through the stats that will be changed
     for (const statToChange of affectedStatArray) {
@@ -53,7 +58,13 @@ export class MainScreen extends React.Component {
       for (const originalStat of statsClone) {
         if (originalStat.name === statToChange) {
           newStat = action.affectedStats[statToChange] + originalStat.value;
-          originalStat.value = newStat;
+          if (newStat < 0) {
+            originalStat.value = 0;
+          } else if (newStat > 100) {
+            originalStat.value = 100;
+          } else {
+            originalStat.value = newStat;
+          }
         }
       }
     }
@@ -61,7 +72,7 @@ export class MainScreen extends React.Component {
   }
 
   changeMessage = action => {
-    this.setState({ message: action.flavortextz });
+    this.setState({ message: action.flavortext });
   };
 
   handleClick = action => {

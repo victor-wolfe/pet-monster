@@ -21,7 +21,7 @@ export const StatDisplay = props => {
 const ListStats = props => {
   const statList = props.stats.map(stat => (
     <li key={stat.id}>
-      {stat.name}: {stat.value}
+      {stat.displayName}: {stat.value}
     </li>
   ));
   return <ul>{statList}</ul>;

@@ -5,7 +5,7 @@ export const ACTIONS = [
     id: 1,
     name: "Feed",
     affectedStats: {
-      hunger: -5
+      hunger: 25
     },
     flavortext: FLAVORTEXT.feed
   },
@@ -13,7 +13,7 @@ export const ACTIONS = [
     id: 2,
     name: "Pet",
     affectedStats: {
-      affection: 3
+      affection: 5
     },
     flavortext: FLAVORTEXT.pet
   },
@@ -25,5 +25,14 @@ export const ACTIONS = [
       affection: -1
     },
     flavortext: FLAVORTEXT.train
+  },
+  {
+    id: 4,
+    name: "Groom",
+    affectedStats: {
+      selfEsteem: 5,
+      affection: 1
+    },
+    flavortext: FLAVORTEXT.groom
   }
 ];
