@@ -13,7 +13,8 @@ export class MainScreen extends React.Component {
       stats: STATS,
       actions: ACTIONS,
       day: 1,
-      time: "Morning"
+      time: "Morning",
+      message: "Your dragon is looking at you expectantly."
     };
   }
 
@@ -56,21 +57,24 @@ export class MainScreen extends React.Component {
         }
       }
     }
-    console.log("State ", this.state.stats);
-    console.log("Copy ", statsClone);
     this.setState({ stats: statsClone });
   }
+
+  changeMessage = action => {
+    this.setState({ message: action.flavortextz });
+  };
 
   handleClick = action => {
     this.performAction(action);
     this.changeTime(this.state.time);
+    this.changeMessage(action);
   };
 
   render() {
     return (
       <div className="nes-container is-dark is-rounded">
         <DayDisplay day={this.state.day} time={this.state.time} />
-        <PetDisplay />
+        <PetDisplay message={this.state.message} />
         <StatDisplay
           stats={this.state.stats}
           actions={this.state.actions}
