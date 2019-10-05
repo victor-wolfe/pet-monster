@@ -81,6 +81,14 @@ export class MainScreen extends React.Component {
     this.changeMessage(action);
   };
 
+  mouseEnter = action => {
+    console.log("enter");
+  };
+
+  mouseLeave = action => {
+    console.log("leave");
+  };
+
   render() {
     return (
       <div className="nes-container is-dark is-rounded">
