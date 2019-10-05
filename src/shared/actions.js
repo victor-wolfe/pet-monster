@@ -7,7 +7,8 @@ export const ACTIONS = [
     affectedStats: {
       hunger: 25
     },
-    flavortext: FLAVORTEXT.feed
+    flavortext: FLAVORTEXT.feed,
+    description: "+25 to hunger"
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const ACTIONS = [
     affectedStats: {
       affection: 5
     },
-    flavortext: FLAVORTEXT.pet
+    flavortext: FLAVORTEXT.pet,
+    description: "+5 to affection"
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const ACTIONS = [
       intelligence: 5,
       affection: -1
     },
-    flavortext: FLAVORTEXT.train
+    flavortext: FLAVORTEXT.train,
+    description: "+5 to intelligence, -1 to affection"
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ export const ACTIONS = [
       selfEsteem: 5,
       affection: 1
     },
-    flavortext: FLAVORTEXT.groom
+    flavortext: FLAVORTEXT.groom,
+    description: "+5 to self-esteem, +1 to affection"
   }
 ];

@@ -10,26 +10,27 @@ export const StatDisplay = props => {
         </ListGroup>
       </div>
       <div className="nes-container is-dark is-rounded">
-        <ListGroup>
-          <ListActions actions={props.actions} onClick={props.onClick} />
-        </ListGroup>
+        <ListActions actions={props.actions} onClick={props.onClick} />
       </div>
     </div>
   );
 };
 
 const ListStats = props => {
-  const statList = props.stats.map(stat => (
-    <li key={stat.id}>
-      {stat.displayName}: {stat.value}
-    </li>
-  ));
-  return <ul>{statList}</ul>;
+  return (
+    <ListGroup style={{ listStyle: "none" }}>
+      {props.stats.map(stat => (
+        <ListGroupItem key={stat.id}>
+          {stat.displayName}: {stat.value}
+        </ListGroupItem>
+      ))}
+    </ListGroup>
+  );
 };
 
 const ListActions = props => {
   return (
-    <ListGroup>
+    <ListGroup style={{ listStyle: "none" }}>
       {props.actions.map(action => (
         <ListGroupItem key={action.id}>
           <Button
