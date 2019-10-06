@@ -1,21 +1,15 @@
 import React from "react";
-
-export const TEST_PET = {
-  name: "Bob",
-  species: "Dragon",
-  src: "img/dragon.gif",
-  alt: "DAGRON"
-};
+import { myMonster } from "../shared/myMonster";
 
 export const PetDisplay = props => {
   return (
     <div>
       <div className="nes-container is-dark with-title is-centered is-rounded">
         <p className="title">
-          {TEST_PET.name} the {TEST_PET.species}
+          {myMonster.name} the {myMonster.species}
         </p>
         <p>
-          <img src={TEST_PET.src} alt={TEST_PET.alt} />
+          <img src={myMonster.src} alt={myMonster.alt} />
         </p>
         <div className="nes-container is-dark is-rounded">{props.message}</div>
       </div>

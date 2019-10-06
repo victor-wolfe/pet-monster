@@ -5,6 +5,7 @@ import DayDisplay from "./TimeDisplay";
 import { STATS } from "../shared/stats";
 import { ACTIONS } from "../shared/actions";
 import { cloneDeep } from "lodash";
+import StartScreen from "./StartScreen";
 
 export class MainScreen extends React.Component {
   constructor(props) {
