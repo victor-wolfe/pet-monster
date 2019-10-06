@@ -11,11 +11,13 @@ export class MainScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      gameStart: false,
       stats: STATS,
       actions: ACTIONS,
       day: 1,
       time: "Morning",
-      message: "Your dragon is looking at you expectantly."
+      message: "Your dragon is looking at you expectantly.",
+      hexColor: "#00b200"
     };
   }
 
@@ -91,16 +93,23 @@ export class MainScreen extends React.Component {
   };
 
   render() {
-    return (
-      <div className="nes-container is-dark is-rounded">
-        <DayDisplay day={this.state.day} time={this.state.time} />
-        <PetDisplay message={this.state.message} />
-        <StatDisplay
-          stats={this.state.stats}
-          actions={this.state.actions}
-          onClick={this.handleClick}
-        />
-      </div>
-    );
+    if (this.state.gameStart) {
+      return <StartScreen />;
+    } else {
+      return (
+        <div className="nes-container is-dark is-rounded">
+          <DayDisplay day={this.state.day} time={this.state.time} />
+          <PetDisplay
+            message={this.state.message}
+            color={this.state.hexColor}
+          />
+          <StatDisplay
+            stats={this.state.stats}
+            actions={this.state.actions}
+            onClick={this.handleClick}
+          />
+        </div>
+      );
+    }
   }
 }

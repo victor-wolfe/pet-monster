@@ -1,5 +1,6 @@
 import React from "react";
 import { myMonster } from "../shared/myMonster";
+import { Baby } from "./SVG";
 
 export const PetDisplay = props => {
   return (
@@ -9,7 +10,7 @@ export const PetDisplay = props => {
           {myMonster.name} the {myMonster.species}
         </p>
         <p>
-          <img src={myMonster.src} alt={myMonster.alt} />
+          <Baby color={props.color} />
         </p>
         <div className="nes-container is-dark is-rounded">{props.message}</div>
       </div>

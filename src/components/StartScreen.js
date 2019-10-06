@@ -1,6 +1,7 @@
 import React from "react";
+import { Input, Button } from "reactstrap";
 import reactCSS from "reactcss";
-import { SketchPicker } from "react-color";
+import { GithubPicker } from "react-color";
 import { Egg } from "./SVG";
 
 class StartScreen extends React.Component {
@@ -12,7 +13,7 @@ class StartScreen extends React.Component {
       b: "19",
       a: "1"
     },
-    eggColor: "#F17013"
+    hexColor: "#F17013"
   };
 
   handleClick = () => {
@@ -24,7 +25,7 @@ class StartScreen extends React.Component {
   };
 
   handleChange = color => {
-    this.setState({ color: color.rgb, eggColor: color.hex });
+    this.setState({ color: color.rgb, hexColor: color.hex });
   };
 
   render() {
@@ -60,19 +61,26 @@ class StartScreen extends React.Component {
 
     return (
       <div className="nes-container is-centered is-dark">
-        <Egg color={this.state.eggColor} />
+        <Egg color={this.props.hexColor} />
         <div style={styles.swatch} onClick={this.handleClick}>
           <div style={styles.color} />
         </div>
         {this.state.displayColorPicker ? (
           <div style={styles.popover}>
             <div style={styles.cover} onClick={this.handleClose} />
-            <SketchPicker
+            <GithubPicker
               color={this.state.color}
               onChange={this.handleChange}
             />
           </div>
         ) : null}
+        <div>
+          <Input placeholder="I'll name it..." />
+          <Button>ENTER</Button>
+        </div>
+        <div className="nes-container is-centered is-dark">
+          When the egg is to your liking, press Enter.
+        </div>
       </div>
     );
   }
