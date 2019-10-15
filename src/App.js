@@ -4,9 +4,14 @@ import StartScreen from "./components/StartScreen";
 
 function App() {
   return (
+    // <Router>
+    //   <Switch>
+    //     <Route path="/" />
+    //   </Switch>
+    // </Router>
     <div className="App">
-      {/* <StartScreen /> */}
-      <MainScreen />
+      <StartScreen />
+      {/* <MainScreen /> */}
     </div>
   );
 }
