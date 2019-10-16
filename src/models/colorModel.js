@@ -9,15 +9,8 @@ const colorModel = {
     b: "19",
     a: "1"
   },
+
   hexColor: "#F17013",
-
-  handleClick: action(state => {
-    state.displayColorPicker = !state.displayColorPicker;
-  }),
-
-  handleClose: action(state => {
-    state.displayColorPicker = false;
-  }),
 
   handleChange: action((state, payload) => {
     state.color = payload.rgb;

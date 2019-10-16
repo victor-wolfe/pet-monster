@@ -1,28 +1,33 @@
 import React from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
+import { useStoreState, useStoreActions } from "easy-peasy";
 
 export const StatDisplay = props => {
+  const playerActions = useStoreState(state => state.stats.playerActions);
   return (
     <div>
       <div className="nes-container is-dark is-rounded">
-        <ListStats stats={props.stats} />
+        <ListStats />
       </div>
       <div className="nes-container is-dark is-rounded">
-        <ListActions actions={props.actions} onClick={props.onClick} />
+        <ListActions actions={playerActions} onClick={props.onClick} />
       </div>
     </div>
   );
 };
 
-const ListStats = props => {
+const ListStats = () => {
+  const healthStats = useStoreState(state => state.stats.healthStats);
   return (
-    <ListGroup style={{ listStyle: "none" }}>
-      {props.stats.map(stat => (
-        <ListGroupItem key={stat.id}>
-          {stat.displayName}: {stat.value}
-        </ListGroupItem>
-      ))}
-    </ListGroup>
+    <div>
+      <ListGroup style={{ listStyle: "none" }}>
+        {healthStats.map((stat, idx) => (
+          <ListGroupItem key={idx}>
+            {stat.displayName}: {stat.value}
+          </ListGroupItem>
+        ))}
+      </ListGroup>
+    </div>
   );
 };
 

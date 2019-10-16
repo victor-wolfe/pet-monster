@@ -1,18 +1,22 @@
 import React from "react";
-import { myMonster } from "../shared/myMonster";
+import { useStoreState } from "easy-peasy";
 import { Baby } from "./SVG";
+import MessageDisplay from "./MessageDisplay";
 
 export const PetDisplay = props => {
+  const hexColor = useStoreState(state => state.color.hexColor);
+  const dragonName = useStoreState(state => state.dragonName.dragonName);
+  const species = useStoreState(state => state.species.species);
   return (
     <div>
       <div className="nes-container is-dark with-title is-centered is-rounded">
         <p className="title">
-          {myMonster.name} the {myMonster.species}
+          {dragonName} the {species}
         </p>
         <p>
-          <Baby color={props.color} />
+          <Baby color={hexColor} />
         </p>
-        <div className="nes-container is-dark is-rounded">{props.message}</div>
+        <MessageDisplay />
       </div>
     </div>
   );
