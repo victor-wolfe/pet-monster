@@ -1,14 +1,13 @@
 import { action } from "easy-peasy";
-import { healthStats, personalityStats } from "../shared/stats";
+import { statList } from "../shared/stats";
 import { ACTIONS } from "../shared/actions";
 
 const statsModel = {
-  healthStats: [...healthStats, ...personalityStats],
-  personalityStats: personalityStats,
+  statList: statList,
   playerActions: ACTIONS,
 
   getHungry: action(state => {
-    healthStats[0].value -= 5;
+    statList[0].value -= 5;
   })
 
   //   updateStats: action((state, payload) => {

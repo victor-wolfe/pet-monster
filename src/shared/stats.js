@@ -1,36 +1,39 @@
-export const healthStats = [
+export const statList = [
   {
     statType: "hunger",
     displayName: "Hunger",
-    value: 100
+    value: 100,
+    type: "health"
   },
   {
     statType: "hygiene",
     displayName: "Hygiene",
-    value: 100
+    value: 100,
+    type: "health"
   },
   {
     statType: "happiness",
     displayName: "Happiness",
-    value: 100
-  }
-];
-
-export const personalityStats = [
+    value: 100,
+    type: "health"
+  },
   {
     statType: "power",
     displayName: "Power",
-    value: 0
+    value: 0,
+    type: "personality"
   },
   {
     statType: "intelligence",
     displayName: "Intelligence",
-    value: 0
+    value: 0,
+    type: "personality"
   },
   {
     statType: "discipline",
     displayName: "Discipline",
-    value: 0
+    value: 0,
+    type: "personality"
   }
 ];
 

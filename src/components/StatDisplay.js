@@ -17,11 +17,11 @@ export const StatDisplay = props => {
 };
 
 const ListStats = () => {
-  const healthStats = useStoreState(state => state.stats.healthStats);
+  const statList = useStoreState(state => state.stats.statList);
   return (
     <div>
       <ListGroup style={{ listStyle: "none" }}>
-        {healthStats.map((stat, idx) => (
+        {statList.map((stat, idx) => (
           <ListGroupItem key={idx}>
             {stat.displayName}: {stat.value}
           </ListGroupItem>
