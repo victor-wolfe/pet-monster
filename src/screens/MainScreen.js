@@ -1,6 +1,16 @@
-import React, { useState } from "react";
-import { useTime } from "../hooks/useTime";
+import React from "react";
+import { PetDisplay } from "../components/PetDisplay";
+import { StatDisplay } from "../components/StatDisplay";
+import DayDisplay from "../components/TimeDisplay";
 
 const MainScreen = () => {
-  const time = useTime();
+  return (
+    <div className="nes-container is-dark is-rounded">
+      <DayDisplay />
+      <PetDisplay />
+      <StatDisplay />
+    </div>
+  );
 };
+
+export default MainScreen;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Button } from "reactstrap";
 import { SliderPicker } from "react-color";
-import { Egg } from "./SVG";
+import { Egg } from "../components/SVG";
 import { useStoreActions, useStoreState } from "easy-peasy";
 
 const StartScreen = () => {
