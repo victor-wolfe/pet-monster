@@ -1,7 +1,7 @@
 import { action } from "easy-peasy";
 
 const gameStartModel = {
-  gameStart: true,
+  gameStart: false,
 
   toggleStart: action(state => {
     state.gameStart = false;

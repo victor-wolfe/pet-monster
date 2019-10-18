@@ -12,8 +12,11 @@ const statsModel = {
   changeTime: action(state => {
     switch (state.time) {
       case "Morning":
-      case "Midnight":
         state.time = "Afternoon";
+        if (state.day == 4) {
+          state.species = "Two-Headed Dragon";
+          state.message = `Your dragon has grown up into a ${state.species}!`;
+        }
         break;
       case "Afternoon":
         state.time = "Night";
@@ -21,12 +24,10 @@ const statsModel = {
       case "Night":
         state.day++;
         if (state.day == 4) {
-          state.time = "Midnight";
-          state.message = "What? Your dragon is changing...";
-        } else {
-          state.time = "Morning";
+          state.message = "Your dragon seems to be changing...";
           state.species = "???";
         }
+        state.time = "Morning";
         break;
       default:
         break;

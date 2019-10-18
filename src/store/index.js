@@ -1,8 +1,8 @@
 import { createStore } from "easy-peasy";
-import colorModel from "../models/colorModel";
-import statsModel from "../models/statsModel";
-import timeModel from "../models/timeModel";
-import gameStartModel from "../models/gameStart";
+import colorModel from "./models/colorModel";
+import statsModel from "./models/statsModel";
+import timeModel from "./models/timeModel";
+import gameStartModel from "./models/gameStart";
 
 const storeModel = {
   start: gameStartModel,
