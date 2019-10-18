@@ -6,7 +6,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 
 const StartScreen = () => {
   const handleChange = useStoreActions(actions => actions.color.handleChange);
-  const changeName = useStoreActions(actions => actions.dragonName.changeName);
+  const changeName = useStoreActions(actions => actions.stats.changeName);
 
   const color = useStoreState(state => state.color.color);
   const hexColor = useStoreState(state => state.color.hexColor);

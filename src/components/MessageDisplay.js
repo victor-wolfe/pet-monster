@@ -2,13 +2,10 @@ import React from "react";
 import { useStoreState } from "easy-peasy";
 
 const MessageDisplay = props => {
-  const dragonName = useStoreState(state => state.dragonName.dragonName);
+  const dragonName = useStoreState(state => state.stats.dragonName);
+  const message = useStoreState(state => state.stats.message);
 
-  return (
-    <div className="nes-container is-dark is-rounded">
-      {dragonName} is looking up to you.
-    </div>
-  );
+  return <div className="nes-container is-dark is-rounded">{message}</div>;
 };
 
 export default MessageDisplay;

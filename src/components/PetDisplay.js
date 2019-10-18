@@ -6,7 +6,7 @@ import MessageDisplay from "./MessageDisplay";
 
 export const PetDisplay = props => {
   const hexColor = useStoreState(state => state.color.hexColor);
-  const dragonName = useStoreState(state => state.dragonName.dragonName);
+  const dragonName = useStoreState(state => state.stats.dragonName);
   const species = useStoreState(state => state.species.species);
   return (
     <Container
@@ -17,12 +17,12 @@ export const PetDisplay = props => {
         {dragonName} the {species}
       </p>
       <Row>
-        <Col style={{ width: "50%", float: "left" }}>
+        <Col style={{ width: "30%", float: "left" }}>
           <Baby color={hexColor} />
         </Col>
         <Col
           className="col-6"
-          style={{ position: "relative", width: "49%", float: "left" }}
+          style={{ position: "relative", width: "69%", float: "left" }}
         >
           <MessageDisplay />
         </Col>

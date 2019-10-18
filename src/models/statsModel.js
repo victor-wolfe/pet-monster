@@ -1,10 +1,8 @@
 import { action, computed } from "easy-peasy";
-import { statList } from "../shared/stats";
-import { ACTIONS } from "../shared/actions";
 
 const statsModel = {
-  statList: statList,
-  playerActions: ACTIONS,
+  dragonName: "Dragon",
+  changeName: action((state, payload) => (state.dragonName = payload)),
 
   hunger: 100,
   hygiene: 100,
@@ -12,6 +10,8 @@ const statsModel = {
   power: 0,
   intelligence: 0,
   discipline: 0,
+
+  message: "The egg hatches. A dragon is born!",
 
   // minMaxer = computed(state => {
   //   if (state > 100)  {
@@ -21,7 +21,7 @@ const statsModel = {
   //   }
   // }),
 
-  getHungry: action((state, payload) => {
+  getHungry: action(state => {
     state.hunger -= 10;
     if (state.hunger < 0) {
       state.hunger = 0;
@@ -47,6 +47,8 @@ const statsModel = {
         if (state.happiness > 100) {
           state.happiness = 100;
         }
+        state.message =
+          "You leave a few villagers outside of your dragon's pen and run away.";
         break;
       case "groom":
         state.hygiene = 105;
@@ -54,9 +56,11 @@ const statsModel = {
         if (state.happiness > 100) {
           state.happiness = 100;
         }
+        state.message = "You buff its scales until they shine.";
         break;
       case "pet":
         state.happiness = 100;
+        state.message = "Who's a good dragon? You are!";
         break;
       case "exercise":
         state.power += 10;
@@ -67,6 +71,7 @@ const statsModel = {
         if (state.hygiene < 0) {
           state.hygiene = 0;
         }
+        state.message = "You try to play fetch and it sets the stick on fire.";
         break;
       case "educate":
         state.intelligence += 10;
@@ -77,6 +82,8 @@ const statsModel = {
         if (state.happiness < 0) {
           state.happiness = 0;
         }
+        state.message =
+          "You lecture your dragon about dragon history. It seems bored.";
         break;
       case "training":
         state.discipline += 10;
@@ -87,6 +94,7 @@ const statsModel = {
         if (state.happiness < 0) {
           state.happiness = 0;
         }
+        state.message = "You do some clicker training with your dragon.";
         break;
       default:
         break;
