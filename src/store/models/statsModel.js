@@ -14,8 +14,26 @@ const statsModel = {
       case "Morning":
         state.time = "Afternoon";
         if (state.day == 4) {
-          state.species = "Two-Headed Dragon";
-          state.message = `Your dragon has grown up into a ${state.species}!`;
+          if (
+            state.power == state.intelligence &&
+            state.power == state.discipline
+          ) {
+            state.species = "Dragon";
+            state.message = "Your dragon is growing up!";
+          } else if (
+            state.power < state.intelligence &&
+            state.power < state.discipline
+          ) {
+            state.species = "Sea Dragon";
+            state.message = "Ahoy there, Sea Dragon!";
+          } else if (state.intelligence < state.discipline) {
+            state.species = "Spiky Dragon";
+            state.message =
+              "Your dragon has become an incredibly awkward adolescent!";
+          } else {
+            state.species = "Two-Headed Dragon";
+            state.message = "Your dragon has grown a second head!";
+          }
         }
         break;
       case "Afternoon":
