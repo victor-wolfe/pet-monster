@@ -1,13 +1,13 @@
 import React from "react";
 import { Col, Row, Container } from "reactstrap";
 import { useStoreState } from "easy-peasy";
-import { Baby } from "./SVG";
 import MessageDisplay from "./MessageDisplay";
+import PetImage from "./SelectSVG";
 
 export const PetDisplay = props => {
   const hexColor = useStoreState(state => state.color.hexColor);
   const dragonName = useStoreState(state => state.stats.dragonName);
-  const species = useStoreState(state => state.species.species);
+  const species = useStoreState(state => state.stats.species);
   return (
     <Container
       style={{ overflow: "auto", position: "relative" }}
@@ -18,7 +18,7 @@ export const PetDisplay = props => {
       </p>
       <Row>
         <Col style={{ width: "30%", float: "left" }}>
-          <Baby color={hexColor} />
+          <PetImage hexColor={hexColor} species={species} />
         </Col>
         <Col
           className="col-6"

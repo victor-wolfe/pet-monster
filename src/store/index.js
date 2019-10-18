@@ -1,12 +1,12 @@
 import { createStore } from "easy-peasy";
 import colorModel from "../models/colorModel";
-import dragonType from "../models/dragonType";
 import statsModel from "../models/statsModel";
 import timeModel from "../models/timeModel";
+import gameStartModel from "../models/gameStart";
 
 const storeModel = {
+  start: gameStartModel,
   color: colorModel,
-  species: dragonType,
   stats: statsModel,
   time: timeModel
 };

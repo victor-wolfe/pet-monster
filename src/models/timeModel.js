@@ -14,6 +14,9 @@ const timeModel = {
         break;
       case "Night":
         state.day++;
+        if (state.day == 4) {
+          state.time = "Midnight";
+        }
         state.time = "Morning";
         break;
       default:

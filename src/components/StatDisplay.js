@@ -11,7 +11,7 @@ export const StatDisplay = () => {
   const discipline = useStoreState(state => state.stats.discipline);
 
   const getHungry = useStoreActions(actions => actions.stats.getHungry);
-  const changeTime = useStoreActions(actions => actions.time.changeTime);
+  const changeTime = useStoreActions(actions => actions.stats.changeTime);
   const updateStats = useStoreActions(actions => actions.stats.updateStats);
 
   return (

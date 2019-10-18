@@ -7,6 +7,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 const StartScreen = () => {
   const handleChange = useStoreActions(actions => actions.color.handleChange);
   const changeName = useStoreActions(actions => actions.stats.changeName);
+  const toggleStart = useStoreActions(actions => actions.start.toggleStart);
 
   const color = useStoreState(state => state.color.color);
   const hexColor = useStoreState(state => state.color.hexColor);
@@ -23,7 +24,7 @@ const StartScreen = () => {
           placeholder="I'll name it..."
           onChange={event => changeName(event.target.value)}
         />
-        <Button onClick={changeName}>ENTER</Button>
+        <Button onClick={toggleStart}>ENTER</Button>
       </div>
       <div className="nes-container is-rounded is-centered is-dark">
         When you are ready, press ENTER.
