@@ -73,7 +73,7 @@ const statsModel = {
         if (state.intelligence > 100) {
           state.intelligence = 100;
         }
-        state.happiness -= 10;
+        state.happiness -= 40;
         if (state.happiness < 0) {
           state.happiness = 0;
         }
@@ -83,7 +83,7 @@ const statsModel = {
         if (state.discipline > 100) {
           state.discipline = 100;
         }
-        state.happiness -= 10;
+        state.happiness -= 40;
         if (state.happiness < 0) {
           state.happiness = 0;
         }

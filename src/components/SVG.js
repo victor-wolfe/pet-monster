@@ -1,6 +1,6 @@
 import React from "react";
 
-const VIEWBOX = "-700 0 2000 512";
+const VIEWBOX = "-300 0 1300 600";
 const FILL = "#212529";
 
 export const Egg = props => {

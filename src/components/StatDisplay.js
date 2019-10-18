@@ -21,12 +21,6 @@ export const StatDisplay = () => {
           className="nes-table is-bordered is-dark is-centered"
           width="99%"
         >
-          <thead>
-            <tr>
-              <th>Health</th>
-              <th>Personality</th>
-            </tr>
-          </thead>
           <tbody>
             <tr>
               <td>
@@ -130,6 +124,7 @@ const StatusBar = ({ value }) => {
           className="nes-progress is-primary"
           value={value}
           max="100"
+          style={{ height: "25px" }}
         ></progress>
       );
     case 2:
@@ -138,6 +133,7 @@ const StatusBar = ({ value }) => {
           className="nes-progress is-success"
           value={value}
           max="100"
+          style={{ height: "25px" }}
         ></progress>
       );
     case 3:
@@ -146,6 +142,7 @@ const StatusBar = ({ value }) => {
           className="nes-progress is-warning"
           value={value}
           max="100"
+          style={{ height: "25px" }}
         ></progress>
       );
     default:
@@ -154,6 +151,7 @@ const StatusBar = ({ value }) => {
           className="nes-progress is-error"
           value={value}
           max="100"
+          style={{ height: "25px" }}
         ></progress>
       );
   }

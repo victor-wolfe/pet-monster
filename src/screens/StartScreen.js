@@ -12,7 +12,7 @@ const StartScreen = () => {
   const hexColor = useStoreState(state => state.color.hexColor);
 
   return (
-    <div className="nes-container is-centered is-dark">
+    <div className="nes-container is-centered is-dark is-rounded">
       <h1>Choose Your Egg</h1>
       <Egg color={hexColor} />
       <div style={{ padding: 20, marginLeft: 20, marginRight: 20 }}>
@@ -25,7 +25,7 @@ const StartScreen = () => {
         />
         <Button onClick={changeName}>ENTER</Button>
       </div>
-      <div className="nes-container is-centered is-dark">
+      <div className="nes-container is-rounded is-centered is-dark">
         When you are ready, press ENTER.
       </div>
     </div>
