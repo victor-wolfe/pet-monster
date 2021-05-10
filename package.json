@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "easy-peasy": "^3.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mobx": "^5.14.0",
     "nes.css": "^2.2.0",
     "react": "^16.9.0",
